@@ -29,8 +29,15 @@ nav {
   }
 
   body {
-    background-image: url('');
+    background-image: url('travel.jpeg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     }
+
+body h1{
+    padding-left:13%;
+    padding-top:10%;
+    color:rgb(200, 10, 200);
+
+}
