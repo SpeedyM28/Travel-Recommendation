@@ -35,9 +35,41 @@ nav {
     background-size: cover;
     }
 
-body h1{
+.main{
     padding-left:13%;
     padding-top:10%;
-    color:rgb(200, 10, 200);
+    color:rgb(150, 5, 150);
+}
 
+.aboutus{
+    padding-left:8%;
+    padding-top:4%;
+    color:rgb(150, 5, 150);
+}
+
+.Undercaps {
+    padding-left:13%;
+    color:rgb(150, 5, 150);
+}
+
+.aboutusundercaps {
+    padding-left:5%;
+    color:rgb(150, 5, 150);
+}
+
+.bookbtn{
+    background-color: black;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 8px;
+    position:absolute;
+    left:13%;
+    font-weight:bold;
+    border:none;
+}
+
+.bookbtn:hover{
+    filter:brightness(150%);
 }
