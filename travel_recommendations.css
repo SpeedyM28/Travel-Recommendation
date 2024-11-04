@@ -138,3 +138,28 @@ nav {
     position:relative;
     left:30px;
 }
+
+.all_contactus {
+    display: flex;
+    float:left;
+    width:50%
+    /*flex-direction: row;
+    flex-flow: wrap;
+    */
+    position:absolute;
+    color:white;
+    display: block;
+    margin: 5%;
+    padding: 20px;
+  }
+
+.form{
+    background-color: rgba(0, 0, 0, 0.3);
+    border:None;
+}
+
+.contact_us_title h1{
+    padding-top:20px;
+    padding-bottom:12px;
+    font-size:30px;
+}
