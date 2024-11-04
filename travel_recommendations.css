@@ -73,3 +73,68 @@ nav {
 .bookbtn:hover{
     filter:brightness(150%);
 }
+
+.all_ourteam {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    color:white;
+  }
+
+.ourteam {
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    width: 2in;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .ourtea {
+    display: block;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    width: 2in;
+    font-size: 20px;
+    color:rgb(150, 5, 150);
+    position:relative;
+    left:30px;
+}
+  
+  .ourteam h6 {
+    align-items: center;
+    font-size: 16px;
+    margin-block-start: 8px;
+    margin-block-end: 5px;
+    font-weight: bold;
+  } 
+  
+  .ourteam p {
+    align-items: center;
+    font-size: 10px;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+  }
+
+  .ourteam a {
+    align-items: center;
+    font-size: 14px;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: rgb(60,60,255);
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 5px;
+    /*padding-left:60px;*/
+    position:relative;
+    left:30px;
+}
