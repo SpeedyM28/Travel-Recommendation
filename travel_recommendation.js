@@ -53,7 +53,7 @@ function searchCondition(){
                     resultDiv.innerHTML += `<p>${x.description}</p>`;
                     resultDiv.innerHTML += `<br><br>`;
                 });
-            }
+            } //had to separate as countries formatting was different to temples and beaches
             else{
                 const tourist_attraction = data[fixed_input];
                 resultDiv.innerHTML += `<h2>Countries:</h2><br>`;
