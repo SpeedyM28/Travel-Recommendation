@@ -1,3 +1,32 @@
+let autosearch = {
+    "beach" : "beaches",
+    "beachs" : "beaches",
+    "beaches" : "beaches",
+    "beich" : "beaches",
+    "beech" : "beaches",
+    "beichs" : "beaches",
+    "beechs" : "beaches",
+    "beeches" : "beaches",
+    "beiches" : "beaches",
+    "temple":"temples",
+    "temples":"temples",
+    "tempels":"temples",
+    "tempel":"temples",
+    "tempeel":"temples",
+    "tempeels":"temples",
+    "templess":"temples",
+    "templies":"temples",
+    "country":"countries",
+    "countrys":"countries",
+    "countres":"countries",
+    "countries":"countries",
+    "countrees":"countries",
+    "countree":"countries",
+    "countre":"countries",
+    "countryes":"countries",
+    "countrye":"countries"
+};
+
 function searchCondition(){
     const input = document.getElementById('conditionInput').value.toLowerCase();
     const resultDiv = document.getElementById('result');
@@ -7,40 +36,43 @@ function searchCondition(){
         .then(response => response.json())
         .then(data => {
             console.log("data successfully received");
+            
+            const fixed_input = autosearch[input];
 
-            if(input !== "beach" || input !== "beaches" || input !== "beachs" || input !== "temples" || input !== "temple" || input !== "templs" || input !== "country" || input !== "countries" || input !== "countrys"){
+            if(typeof fixed_input === 'undefined'){
                 resultDiv.innerHTML = 'Sorry, what you are searching for was not found';
                 return;
             }
+            
+            if(fixed_input != "countries"){
+                const tourist_attraction = data[fixed_input];
+                tourist_attraction.forEach(x => {
+                    resultDiv.innerHTML += `<h2>${x.name}</h2>`;
+                    resultDiv.innerHTML += `<img src="${x.imageUrl}" alt="${fixed_input} photo">`;
+                    resultDiv.innerHTML += `<p>${x.description}</p>`;
+                    resultDiv.innerHTML += `<br><br>`;
+                });
+            }
+            else{
+                const tourist_attraction = data[fixed_input];
+                resultDiv.innerHTML += `<h2>Countries</h2><br>`;
+                tourist_attraction.forEach(country => {
+                    resultDiv.innerHTML += `<h3>${country.name}</h3><br>`;
+                    resultDiv.innerHTML += `<h4>Cities</h4><br>`;
+                    country.cities.forEach(city => {
+                        resultDiv.innerHTML += `<h4>${city.name}</h4>`;
+                        resultDiv.innerHTML += `<img src="${city.imageUrl}" alt="city photo">`;
+                        resultDiv.innerHTML += `<p>${city.description}</p>`;
+                        resultDiv.innerHTML += `<br><br>`;
+                    });
+                });
+            }
+            
 
-            //const mappedinput = dictionary[input];
-
-            //if failed return again, else continue and filter through json
-
-            //create a dictionary to map multiple words to a set standard 
-            //search for the set standard within json data, compare with 
-            //health example
-
-            // const condition = data.conditions.find(item => item.name.toLowerCase() === input);
-
-            // if (condition) {
-            //   const symptoms = condition.symptoms.join(', ');
-            //   const prevention = condition.prevention.join(', ');
-            //   const treatment = condition.treatment;
-
-            //   resultDiv.innerHTML += `<h2>${condition.name}</h2>`;
-            //   resultDiv.innerHTML += `<img src="${condition.imagesrc}" alt="hjh">`;
-
-            //   resultDiv.innerHTML += `<p><strong>Symptoms:</strong> ${symptoms}</p>`;
-            //   resultDiv.innerHTML += `<p><strong>Prevention:</strong> ${prevention}</p>`;
-            //   resultDiv.innerHTML += `<p><strong>Treatment:</strong> ${treatment}</p>`;
-            // } else {
-            //   resultDiv.innerHTML = 'Condition not found.';
-            // }
         })
         .catch(error => {
             console.error('Oops there was an error:', error);
-            // resultDiv.innerHTML = 'An error occurred while fetching data.';
+            resultDiv.innerHTML = `<h2>An error occurred while fetching data.</h2>`;
         });
     }
 
