@@ -1,13 +1,13 @@
 let autosearch = {
-    "beach" : "beaches",
-    "beachs" : "beaches",
-    "beaches" : "beaches",
-    "beich" : "beaches",
-    "beech" : "beaches",
-    "beichs" : "beaches",
-    "beechs" : "beaches",
-    "beeches" : "beaches",
-    "beiches" : "beaches",
+    "beach":"beaches",
+    "beachs":"beaches",
+    "beaches":"beaches",
+    "beich":"beaches",
+    "beech":"beaches",
+    "beichs":"beaches",
+    "beechs":"beaches",
+    "beeches":"beaches",
+    "beiches":"beaches",
     "temple":"temples",
     "temples":"temples",
     "tempels":"temples",
@@ -68,8 +68,6 @@ function searchCondition(){
                     });
                 });
             }
-            
-
         })
         .catch(error => {
             console.error('Oops there was an error:', error);
