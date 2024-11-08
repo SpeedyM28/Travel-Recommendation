@@ -46,8 +46,9 @@ function searchCondition(){
             
             if(fixed_input != "countries"){
                 const tourist_attraction = data[fixed_input];
+                resultDiv.innerHTML += `<h2>Cities:</h2><br>`;
                 tourist_attraction.forEach(x => {
-                    resultDiv.innerHTML += `<h2>${x.name}</h2>`;
+                    resultDiv.innerHTML += `<h3>${x.name}</h3>`;
                     resultDiv.innerHTML += `<img src="${x.imageUrl}" alt="${fixed_input} photo">`;
                     resultDiv.innerHTML += `<p>${x.description}</p>`;
                     resultDiv.innerHTML += `<br><br>`;
@@ -55,10 +56,10 @@ function searchCondition(){
             }
             else{
                 const tourist_attraction = data[fixed_input];
-                resultDiv.innerHTML += `<h2>Countries</h2><br>`;
+                resultDiv.innerHTML += `<h2>Countries:</h2><br>`;
                 tourist_attraction.forEach(country => {
                     resultDiv.innerHTML += `<h3>${country.name}</h3><br>`;
-                    resultDiv.innerHTML += `<h4>Cities</h4><br>`;
+                    resultDiv.innerHTML += `<h4>Cities:</h4><br>`;
                     country.cities.forEach(city => {
                         resultDiv.innerHTML += `<h4>${city.name}</h4>`;
                         resultDiv.innerHTML += `<img src="${city.imageUrl}" alt="city photo">`;
@@ -77,3 +78,11 @@ function searchCondition(){
     }
 
 document.getElementById('btnSearch').addEventListener('click', searchCondition);
+
+function reset(){
+    document.getElementById('conditionInput').value = "";
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '';
+}
+
+document.getElementById('reset').addEventListener('click',reset);
